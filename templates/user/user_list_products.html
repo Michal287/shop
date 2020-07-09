@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Twoje produkty</title>
+{% endblock head %}
+
+{% block content %}
+<h1>Produkty</h1>
+<ul>
+{% for product in object_list %}
+    <li>{{ product.name }} - {{ product.category }} - {{ product.quantity }} - {{ product.price }}</li>
+{% empty %}
+    <li>Nie masz żadnych wystawionych produktów.</li>
+{% endfor %}
+</ul>
+
+{% if page_obj.paginator.num_pages > 1 %}
+
+    <div class="product__pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+        {% endif %}
+
+        <a href="#" style="border-color: black;">{{ page_obj.number }}</a>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+        {% endif %}
+    </div>
+
+{% endif %}
+
+{% endblock %}
+

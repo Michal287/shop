@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Rejestracja</title>
+{% endblock head %}
+
+{% block content %}
+REJESTRACJA
+    {{ error }}
+<form method="post">{% csrf_token %}
+        {{ RegisterForm }}
+        {{ form.password.errors }}
+    <input type="submit" value="Zarejestruj się">
+</form>
+{% endblock %}

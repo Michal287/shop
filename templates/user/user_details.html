@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Ustawienia</title>
+{% endblock head %}
+
+{% block content %}
+USTAWIENIA
+
+    <form method="post">{% csrf_token %}
+        {{ user_form }}
+        {{ profile_form }}
+        <input type="submit" value="ZMIEŃ USTAWIENIA">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Logowanie</title>
+{% endblock head %}
+
+{% block content %}
+LOGOWANIE
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Send message">
+</form>
+    <a href="{% url 'password_reset_view' %}">Zapomniałeś hasła?</a>
+{% endblock %}

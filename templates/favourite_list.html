@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Koszyk</title>
+{% endblock head %}
+
+{% block content %}
+<section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="shoping__product">Products</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for image in object_list %}
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="{% static 'media/' %}{{ image.source }}" style="height: 100px; width: 120px; object-fit: cover;" alt="">
+                                        <a href="{{ image.product.get_absolute_url }}"><h5>{{ image.product.name }}</h5></a>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        ${{ image.product.price }}
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <a><span class="icon_close remove_favourite"><input type="hidden" value={{ image.product.id }}></span></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="{% url 'products_front_list' %}" class="primary-btn cart-btn">Kontynuj zakupy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

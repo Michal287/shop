@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Dodawanie produktu</title>
+{% endblock head %}
+
+{% block content %}
+
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form.as_p }}
+            {{ form2.as_p }}
+        <input type="submit" value="Send message">
+    </form>
+
+{% endblock %}
