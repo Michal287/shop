@@ -140,8 +140,8 @@ LOGIN_REDIRECT_URL = "products_front_list"
 LOGOUT_REDIRECT_URL = "products_front_list"
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'michal.banach287@gmail.com'
-EMAIL_HOST_PASSWORD = 'Tundra21!'
+EMAIL_HOST_USER = 'email'
+EMAIL_HOST_PASSWORD = 'password'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
